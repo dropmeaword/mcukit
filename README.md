@@ -1,4 +1,4 @@
-# DERFUNKE MCUKIT
+# DERFUNKE McUKIT
 
 This is a collection of libraries for common needs when programming Arduino's or ESP microcontrollers. Meant for own use and for use in teaching.
 
