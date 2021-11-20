@@ -1,6 +1,6 @@
 #include "ota.h"
 
-void ota_init(String name = NULL) {
+void ota_init(const char *name = NULL) {
   // Port defaults to 3232
   // ArduinoOTA.setPort(3232);
 
