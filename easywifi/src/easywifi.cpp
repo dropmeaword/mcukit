@@ -64,7 +64,7 @@ bool wifi_connect_as_client(const char *ssid, const char *passw, int timeouts = 
     wifi.thisip = WiFi.localIP();
   }
 
-  wifi.mode = WifiMode::ACCESS_POINT;
+  wifi.mode = WifiMode::CLIENT;
 
   return succeeded;
 }
