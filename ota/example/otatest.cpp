@@ -1,13 +1,36 @@
+#define LOG_ENABLED
 #include <Arduino.h>
+#include <derfunke.h>
+#include <easywifi.h>
 #include <ota.h>
 
-void setup() {
-    Serial.begin( 9600 );
-    while(!Serial);
+#define SSID "some_ssid"
+#define PASSWD "some_password"
 
-    ota_init("device-one");
+void setup() {
+  Serial.begin(115200);
+  while(!Serial) ;
+
+  // welcome serial output header
+  df_header_print();
+
+  // we need to be connected to wifi for OTA to 
+  // initialize properly
+  if( wifi_connect_as_client(SSID, PASSWD) ) {
+    wifi_print_mode();
+    wifi_print_ip();
+  } else {
+    Serial.print("Failed to connect to wifi ");
+    Serial.print( SSID );
+    Serial.println();
+  }
+
+  // this is the name the device will take as an OTA port
+  ota_init("racoon");
 }
 
 void loop() {
-    ota_loop();
+  ota_loop();
+
+  delay(100); // chill for a bit
 }
