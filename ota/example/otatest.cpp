@@ -4,6 +4,8 @@
 #include <easywifi.h>
 #include <ota.h>
 
+// i like to put these two in another file, so that it's 
+// not checked in git commits
 #define SSID "some_ssid"
 #define PASSWD "some_password"
 
