@@ -1,3 +1,5 @@
+#define LOG_ENABLED
+
 #if defined(ARDUINO_ARCH_ESP32)
 #include <WiFi.h>
 #else
@@ -39,6 +41,8 @@ void wifi_set_default_ap_name(const char *name) {
  */
 bool wifi_connect_as_client(const char *ssid, const char *passw, int timeouts) {
   boolean succeeded = true;
+
+  wifi_set_credentials(ssid, passw);
 
   WiFi.mode(WIFI_STA);  // both hotspot and client are enabled
   WiFi.begin(ssid, passw);
@@ -107,10 +111,12 @@ void wifi_print_mode() {
     LOG("Connected to ");
     LOG(wifi.ssid);
     LOG(" as client");
+    LOG_NEW_LINE
   } else if (WifiMode::ACCESS_POINT == wifi.mode) {
     LOG("Created ");
     LOG(wifi.apssid);
     LOG(" access point");
+    LOG_NEW_LINE
   }
 }
 
