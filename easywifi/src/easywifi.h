@@ -28,7 +28,7 @@ void wifi_set_credentials(const char *ssid, const char *passw);
 void wifi_set_default_ap_name(const char *ssid);
 void wifi_print_ip();
 void wifi_print_mode();
-bool wifi_connect_as_client(const char *ssid, const char *passw, int timeouts);
+bool wifi_connect_as_client(const char *ssid, const char *passw, int timeouts = 10);
 bool wifi_create_ap(const char *myssid);
 
 #endif // __EASYWIFI_H__

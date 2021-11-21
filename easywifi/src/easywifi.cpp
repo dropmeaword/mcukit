@@ -37,7 +37,7 @@ void wifi_set_default_ap_name(const char *name) {
  * @param passw password
  * @param timeout is in seconds
  */
-bool wifi_connect_as_client(const char *ssid, const char *passw, int timeouts = 10) {
+bool wifi_connect_as_client(const char *ssid, const char *passw, int timeouts) {
   boolean succeeded = true;
 
   WiFi.mode(WIFI_STA);  // both hotspot and client are enabled
