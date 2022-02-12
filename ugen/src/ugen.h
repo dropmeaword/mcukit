@@ -7,6 +7,7 @@
 //     URL: https://github.com/RobTillaart/FunctionGenerator
 //
 
+// with some extensions by studio derfunke
 
 #include "Arduino.h"
 
@@ -40,6 +41,7 @@ public:
   float sinus(float t);
   float stair(float t, uint16_t steps = 8, uint8_t mode = 0);
   float random();
+  virtual float sample(float t) { return zero(); }
 
 private:
   float _period;
@@ -54,4 +56,32 @@ private:
   uint32_t _m_w = 1;
   uint32_t _m_z = 2; 
   uint32_t _random();
+};
+
+class USquare : public Ugen {
+  public:
+    float sample(float t) {
+      return square(t);
+    }
+};
+
+class USinus : public Ugen {
+  public:
+    float sample(float t) {
+      return sinus(t);
+    }
+};
+
+class UTriangle : public Ugen {
+  public:
+    float sample(float t) {
+      return triangle(t);
+    }
+};
+
+class URandom : public Ugen {
+  public:
+    float sample(float t) {
+      return random();
+    }
 };
