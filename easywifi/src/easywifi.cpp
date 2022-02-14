@@ -104,6 +104,7 @@ bool wifi_create_ap(const char *myssid) {
 void wifi_print_ip() {
     LOG("IP address: ");
     LOG( wifi.thisip.toString() );
+    LOG_NEW_LINE
 }
 
 void wifi_print_mode() {
